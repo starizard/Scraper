@@ -1,25 +1,36 @@
 <div class="container">
+	
 	<div class="jumbotron">
-	<h1>Scraped Results</h1>
+	<h1 class="text-center animated infinite pulse">ScrapeBook</h1>
+	
+    <br>
 	<%=form_tag("/",method:'get') do %>
-	<%=label_tag(:search,"Search Reddit for:")%>
-	<%=text_field_tag(:search)%>
-	<%= radio_button_tag(:site, "Reddit") %>
-	<%= label_tag(:site_reddit, "Search Reddit") %>
+	<div class="text-center">
+	<%=label_tag(:search,"Search Term:")%>
+	<p><%=text_field_tag(:search)%></p>
+	<p><%= radio_button_tag(:site, "Reddit") %>
+	<%= label_tag(:site_reddit, "  Reddit ") %>
 	<%= radio_button_tag(:site, "Digg") %>
-	<%= label_tag(:site_digg, "Search Digg") %>
-	<%=submit_tag("Search")%>
+	<%= label_tag(:site_digg, "  Digg ") %></p><br>
+	<p class="text-center"><%=submit_tag("Search")%></p><br>
 	<%end%>
 	</div>
-
-  <div class="row">
-    <div class="col-lg-2">
+	<h4 class="pull-right">-Made By Shawn Rebello</h4><br>
+	 
+	</div>
+    <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+  <div class="row  bg-1">
+     <div class="container">
+  
+    <div class="col-lg-1">
     </div>
-    <div class="col-lg-10">
+    <div class="col-lg-10 ">
     	<%@titles.each do |x| %>
         <p><h2><li><%= x.text%></li></h2></p>
-        <p><h3><a href="<%= x.attributes["href"].value%>">View this Post</a><h3></p>
+        <p><h3><a href="<%= x.attributes["href"].value%>">   View this Post</a><h3></p>
         <%end%>
     </div>
-    <%=console%>
+
    
