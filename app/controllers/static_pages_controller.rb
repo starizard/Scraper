@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
   	@pages=Scrape.new("http://reddit.com")
   	@pages=@pages.get_page
   	@form=@pages.form_with(:action=> "https://www.reddit.com/search")
-  	@form.fields.first.value="Shawn"
+  	@form.fields.first.value=params[:search]
   	@result=@form.click_button
 
   	@titles=@result.search(".search-result-link .search-title")

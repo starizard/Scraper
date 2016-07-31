@@ -1,7 +1,22 @@
-<h1>Scraped Titles</h1>
+<div class="container">
+	<div class="jumbotron">
+	<h1>Scraped Results</h1>
+	<%=form_tag("/",method:'get') do %>
+	<%=label_tag(:search,"Search Reddit for:")%>
+	<%=text_field_tag(:search)%>
 
-<%@titles.each do |x| %>
-<p><h2><%= x.text%></h2></p>
+	<%=submit_tag("Search")%>
+	<%end%>
+	</div>
 
-
-<%end%>
+  <div class="row">
+    <div class="col-lg-2">
+    </div>
+    <div class="col-lg-10">
+    	<%@titles.each do |x| %>
+        <p><h2><li><%= x.text%></li></h2></p>
+        <p><h3><a href="<%= x.attributes["href"].value%>">View this Post</a><h3></p>
+        <%end%>
+    </div>
+    <%=console%>
+   
