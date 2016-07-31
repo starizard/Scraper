@@ -4,7 +4,10 @@
 	<%=form_tag("/",method:'get') do %>
 	<%=label_tag(:search,"Search Reddit for:")%>
 	<%=text_field_tag(:search)%>
-
+	<%= radio_button_tag(:site, "Reddit") %>
+	<%= label_tag(:site_reddit, "Search Reddit") %>
+	<%= radio_button_tag(:site, "Digg") %>
+	<%= label_tag(:site_digg, "Search Digg") %>
 	<%=submit_tag("Search")%>
 	<%end%>
 	</div>
