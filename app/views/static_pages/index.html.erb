@@ -1,2 +1,7 @@
-<h1>StaticPages#index</h1>
-<p>Find me in app/views/static_pages/index.html.erb</p>
+<h1>Scraped Titles</h1>
+
+<%@titles.each do |x| %>
+<p><h2><%= x.text%></h2></p>
+
+
+<%end%>
